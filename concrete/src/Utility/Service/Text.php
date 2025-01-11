@@ -352,6 +352,21 @@ class Text
         return $r1;
     }
 
+     /**
+     * Takes a CamelCase string and turns it into snake_case resolving bugs in
+     * uncamelcase(). An alternative method is required because the bugged
+     * behaviour of uncamelcase() has too long a legacy and some code may
+     * actually depend on it!
+     *
+     * @param string $string
+     *
+     * @return string
+     */
+    public function camel_to_snake_case($string)
+    {
+        return $this->uncamelcase(ucfirst($string));
+    }
+
     /**
      * Takes a string and turns it into a handle.
      *
